@@ -893,13 +893,13 @@ img{
     }
 
     .services__container{
-        grid-template-columns: max-content;
+        grid-template-rows: max-content;
         justify-content: center;
         
     }
     .services__content{
         padding-right: 3.5rem;
-        padding-left: 3.5rem;
+        
     }
 
     .services__modal{
