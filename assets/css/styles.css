@@ -893,7 +893,7 @@ img{
     }
 
     .services__container{
-        grid-template-rows: max-content;
+        grid-template-columns: auto;
         justify-content: center;
         
     }
