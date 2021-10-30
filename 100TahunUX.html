@@ -1,0 +1,649 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>UX dalam 100 Tahun</title><style>
+    /* cspell:disable-file */
+    /* webkit printing magic: print all background colors */
+    html {
+        -webkit-print-color-adjust: exact;
+    }
+    * {
+        box-sizing: border-box;
+        -webkit-print-color-adjust: exact;
+    }
+    
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    @media only screen {
+        body {
+            margin: 2em auto;
+            max-width: 900px;
+            color: rgb(55, 53, 47);
+        }
+    }
+    
+    body {
+        line-height: 1.5;
+        white-space: pre-wrap;
+    }
+    
+    a,
+    a.visited {
+        color: inherit;
+        text-decoration: underline;
+    }
+    
+    .pdf-relative-link-path {
+        font-size: 80%;
+        color: #444;
+    }
+    
+    h1,
+    h2,
+    h3 {
+        letter-spacing: -0.01em;
+        line-height: 1.2;
+        font-weight: 600;
+        margin-bottom: 0;
+    }
+    
+    .page-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-top: 0;
+        margin-bottom: 0.75em;
+    }
+    
+    h1 {
+        font-size: 1.875rem;
+        margin-top: 1.875rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+    }
+    
+    h3 {
+        font-size: 1.25rem;
+        margin-top: 1.25rem;
+    }
+    
+    .source {
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        padding: 1.5em;
+        word-break: break-all;
+    }
+    
+    .callout {
+        border-radius: 3px;
+        padding: 1rem;
+    }
+    
+    figure {
+        margin: 1.25em 0;
+        page-break-inside: avoid;
+    }
+    
+    figcaption {
+        opacity: 0.5;
+        font-size: 85%;
+        margin-top: 0.5em;
+    }
+    
+    mark {
+        background-color: transparent;
+    }
+    
+    .indented {
+        padding-left: 1.5em;
+    }
+    
+    hr {
+        background: transparent;
+        display: block;
+        width: 100%;
+        height: 1px;
+        visibility: visible;
+        border: none;
+        border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+    }
+    
+    img {
+        max-width: 100%;
+    }
+    
+    @media only print {
+        img {
+            max-height: 100vh;
+            object-fit: contain;
+        }
+    }
+    
+    @page {
+        margin: 1in;
+    }
+    
+    .collection-content {
+        font-size: 0.875rem;
+    }
+    
+    .column-list {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .column {
+        padding: 0 1em;
+    }
+    
+    .column:first-child {
+        padding-left: 0;
+    }
+    
+    .column:last-child {
+        padding-right: 0;
+    }
+    
+    .table_of_contents-item {
+        display: block;
+        font-size: 0.875rem;
+        line-height: 1.3;
+        padding: 0.125rem;
+    }
+    
+    .table_of_contents-indent-1 {
+        margin-left: 1.5rem;
+    }
+    
+    .table_of_contents-indent-2 {
+        margin-left: 3rem;
+    }
+    
+    .table_of_contents-indent-3 {
+        margin-left: 4.5rem;
+    }
+    
+    .table_of_contents-link {
+        text-decoration: none;
+        opacity: 0.7;
+        border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+    }
+    
+    table,
+    th,
+    td {
+        border: 1px solid rgba(55, 53, 47, 0.09);
+        border-collapse: collapse;
+    }
+    
+    table {
+        border-left: none;
+        border-right: none;
+    }
+    
+    th,
+    td {
+        font-weight: normal;
+        padding: 0.25em 0.5em;
+        line-height: 1.5;
+        min-height: 1.5em;
+        text-align: left;
+    }
+    
+    th {
+        color: rgba(55, 53, 47, 0.6);
+    }
+    
+    ol,
+    ul {
+        margin: 0;
+        margin-block-start: 0.6em;
+        margin-block-end: 0.6em;
+    }
+    
+    li > ol:first-child,
+    li > ul:first-child {
+        margin-block-start: 0.6em;
+    }
+    
+    ul > li {
+        list-style: disc;
+    }
+    
+    ul.to-do-list {
+        text-indent: -1.7em;
+    }
+    
+    ul.to-do-list > li {
+        list-style: none;
+    }
+    
+    .to-do-children-checked {
+        text-decoration: line-through;
+        opacity: 0.375;
+    }
+    
+    ul.toggle > li {
+        list-style: none;
+    }
+    
+    ul {
+        padding-inline-start: 1.7em;
+    }
+    
+    ul > li {
+        padding-left: 0.1em;
+    }
+    
+    ol {
+        padding-inline-start: 1.6em;
+    }
+    
+    ol > li {
+        padding-left: 0.2em;
+    }
+    
+    .mono ol {
+        padding-inline-start: 2em;
+    }
+    
+    .mono ol > li {
+        text-indent: -0.4em;
+    }
+    
+    .toggle {
+        padding-inline-start: 0em;
+        list-style-type: none;
+    }
+    
+    /* Indent toggle children */
+    .toggle > li > details {
+        padding-left: 1.7em;
+    }
+    
+    .toggle > li > details > summary {
+        margin-left: -1.1em;
+    }
+    
+    .selected-value {
+        display: inline-block;
+        padding: 0 0.5em;
+        background: rgba(206, 205, 202, 0.5);
+        border-radius: 3px;
+        margin-right: 0.5em;
+        margin-top: 0.3em;
+        margin-bottom: 0.3em;
+        white-space: nowrap;
+    }
+    
+    .collection-title {
+        display: inline-block;
+        margin-right: 1em;
+    }
+    
+    time {
+        opacity: 0.5;
+    }
+    
+    .icon {
+        display: inline-block;
+        max-width: 1.2em;
+        max-height: 1.2em;
+        text-decoration: none;
+        vertical-align: text-bottom;
+        margin-right: 0.5em;
+    }
+    
+    img.icon {
+        border-radius: 3px;
+    }
+    
+    .user-icon {
+        width: 1.5em;
+        height: 1.5em;
+        border-radius: 100%;
+        margin-right: 0.5rem;
+    }
+    
+    .user-icon-inner {
+        font-size: 0.8em;
+    }
+    
+    .text-icon {
+        border: 1px solid #000;
+        text-align: center;
+    }
+    
+    .page-cover-image {
+        display: block;
+        object-fit: cover;
+        width: 100%;
+        height: 30vh;
+    }
+    
+    .page-header-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+    
+    .page-header-icon-with-cover {
+        margin-top: -0.72em;
+        margin-left: 0.07em;
+    }
+    
+    .page-header-icon img {
+        border-radius: 3px;
+    }
+    
+    .link-to-page {
+        margin: 1em 0;
+        padding: 0;
+        border: none;
+        font-weight: 500;
+    }
+    
+    p > .user {
+        opacity: 0.5;
+    }
+    
+    td > .user,
+    td > time {
+        white-space: nowrap;
+    }
+    
+    input[type="checkbox"] {
+        transform: scale(1.5);
+        margin-right: 0.6em;
+        vertical-align: middle;
+    }
+    
+    p {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+    
+    .image {
+        border: none;
+        margin: 1.5em 0;
+        padding: 0;
+        border-radius: 0;
+        text-align: center;
+    }
+    
+    .code,
+    code {
+        background: rgba(135, 131, 120, 0.15);
+        border-radius: 3px;
+        padding: 0.2em 0.4em;
+        border-radius: 3px;
+        font-size: 85%;
+        tab-size: 2;
+    }
+    
+    code {
+        color: #eb5757;
+    }
+    
+    .code {
+        padding: 1.5em 1em;
+    }
+    
+    .code-wrap {
+        white-space: pre-wrap;
+        word-break: break-all;
+    }
+    
+    .code > code {
+        background: none;
+        padding: 0;
+        font-size: 100%;
+        color: inherit;
+    }
+    
+    blockquote {
+        font-size: 1.25em;
+        margin: 1em 0;
+        padding-left: 1em;
+        border-left: 3px solid rgb(55, 53, 47);
+    }
+    
+    .bookmark {
+        text-decoration: none;
+        max-height: 8em;
+        padding: 0;
+        display: flex;
+        width: 100%;
+        align-items: stretch;
+    }
+    
+    .bookmark-title {
+        font-size: 0.85em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: 1.75em;
+        white-space: nowrap;
+    }
+    
+    .bookmark-text {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .bookmark-info {
+        flex: 4 1 180px;
+        padding: 12px 14px 14px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    .bookmark-image {
+        width: 33%;
+        flex: 1 1 180px;
+        display: block;
+        position: relative;
+        object-fit: cover;
+        border-radius: 1px;
+    }
+    
+    .bookmark-description {
+        color: rgba(55, 53, 47, 0.6);
+        font-size: 0.75em;
+        overflow: hidden;
+        max-height: 4.5em;
+        word-break: break-word;
+    }
+    
+    .bookmark-href {
+        font-size: 0.75em;
+        margin-top: 0.25em;
+    }
+    
+    .sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+    .code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+    .serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+    .mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+    .pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+    .pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+    .pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+    .pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+    .pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+    .pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+    .pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+    .pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+    .pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+    .pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+    .pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+    .pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+    .pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+    .pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+    .pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+    .pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+    .highlight-default {
+        color: rgba(55, 53, 47, 1);
+    }
+    .highlight-gray {
+        color: rgba(120, 119, 116, 1);
+        fill: rgba(145, 145, 142, 1);
+    }
+    .highlight-brown {
+        color: rgba(159, 107, 83, 1);
+        fill: rgba(187, 132, 108, 1);
+    }
+    .highlight-orange {
+        color: rgba(217, 115, 13, 1);
+        fill: rgba(215, 129, 58, 1);
+    }
+    .highlight-yellow {
+        color: rgba(203, 145, 47, 1);
+        fill: rgba(203, 148, 51, 1);
+    }
+    .highlight-teal {
+        color: rgba(68, 131, 97, 1);
+        fill: rgba(108, 155, 125, 1);
+    }
+    .highlight-blue {
+        color: rgba(51, 126, 169, 1);
+        fill: rgba(91, 151, 189, 1);
+    }
+    .highlight-purple {
+        color: rgba(144, 101, 176, 1);
+        fill: rgba(167, 130, 195, 1);
+    }
+    .highlight-pink {
+        color: rgba(193, 76, 138, 1);
+        fill: rgba(205, 116, 159, 1);
+    }
+    .highlight-red {
+        color: rgba(212, 76, 71, 1);
+        fill: rgba(225, 111, 100, 1);
+    }
+    .highlight-gray_background {
+        background: rgba(241, 241, 239, 1);
+    }
+    .highlight-brown_background {
+        background: rgba(244, 238, 238, 1);
+    }
+    .highlight-orange_background {
+        background: rgba(251, 236, 221, 1);
+    }
+    .highlight-yellow_background {
+        background: rgba(251, 243, 219, 1);
+    }
+    .highlight-teal_background {
+        background: rgba(237, 243, 236, 1);
+    }
+    .highlight-blue_background {
+        background: rgba(231, 243, 248, 1);
+    }
+    .highlight-purple_background {
+        background: rgba(244, 240, 247, 0.8);
+    }
+    .highlight-pink_background {
+        background: rgba(249, 238, 243, 0.8);
+    }
+    .highlight-red_background {
+        background: rgba(253, 235, 236, 1);
+    }
+    .block-color-default {
+        color: inherit;
+        fill: inherit;
+    }
+    .block-color-gray {
+        color: rgba(120, 119, 116, 1);
+        fill: rgba(145, 145, 142, 1);
+    }
+    .block-color-brown {
+        color: rgba(159, 107, 83, 1);
+        fill: rgba(187, 132, 108, 1);
+    }
+    .block-color-orange {
+        color: rgba(217, 115, 13, 1);
+        fill: rgba(215, 129, 58, 1);
+    }
+    .block-color-yellow {
+        color: rgba(203, 145, 47, 1);
+        fill: rgba(203, 148, 51, 1);
+    }
+    .block-color-teal {
+        color: rgba(68, 131, 97, 1);
+        fill: rgba(108, 155, 125, 1);
+    }
+    .block-color-blue {
+        color: rgba(51, 126, 169, 1);
+        fill: rgba(91, 151, 189, 1);
+    }
+    .block-color-purple {
+        color: rgba(144, 101, 176, 1);
+        fill: rgba(167, 130, 195, 1);
+    }
+    .block-color-pink {
+        color: rgba(193, 76, 138, 1);
+        fill: rgba(205, 116, 159, 1);
+    }
+    .block-color-red {
+        color: rgba(212, 76, 71, 1);
+        fill: rgba(225, 111, 100, 1);
+    }
+    .block-color-gray_background {
+        background: rgba(241, 241, 239, 1);
+    }
+    .block-color-brown_background {
+        background: rgba(244, 238, 238, 1);
+    }
+    .block-color-orange_background {
+        background: rgba(251, 236, 221, 1);
+    }
+    .block-color-yellow_background {
+        background: rgba(251, 243, 219, 1);
+    }
+    .block-color-teal_background {
+        background: rgba(237, 243, 236, 1);
+    }
+    .block-color-blue_background {
+        background: rgba(231, 243, 248, 1);
+    }
+    .block-color-purple_background {
+        background: rgba(244, 240, 247, 0.8);
+    }
+    .block-color-pink_background {
+        background: rgba(249, 238, 243, 0.8);
+    }
+    .block-color-red_background {
+        background: rgba(253, 235, 236, 1);
+    }
+    .select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+    .select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+    .select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+    .select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+    .select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+    .select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+    .select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+    .select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+    .select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+    
+    .checkbox {
+        display: inline-flex;
+        vertical-align: text-bottom;
+        width: 16;
+        height: 16;
+        background-size: 16px;
+        margin-left: 2px;
+        margin-right: 5px;
+    }
+    
+    .checkbox-on {
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+    }
+    
+    .checkbox-off {
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+    }
+        
+    </style></head><body><article id="a78ec775-4aa8-436c-8d5c-e716beef9721" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🌻</span></div><h1 class="page-title"><strong>UX dalam 100 Tahun</strong></h1></header><div class="page-body"><p id="ca395880-c27f-4f28-886d-4c7eca9e9f36" class="">Oleh Jakob Nielsen</p><p id="106b95b0-0add-41ab-b406-6d7a0b16c5f4" class=""><em>diterjemahkan oleh Fathur Firman Syeh</em></p><p id="4777eb4c-254d-4dc9-ad57-eb1801177094" class="">baca artikel asli 👇👇👇</p><p id="a5bcbf03-fc9f-4572-ac53-27e6825bbb5b" class=""><a href="https://www.nngroup.com/articles/100-years-ux/">https://www.nngroup.com/articles/100-years-ux/</a></p><p id="0e1aceab-e6f4-4d87-ab40-0b0bb54f8691" class=""><strong>Ringkasan:</strong></p><p id="ec492606-a02e-401d-beb5-7a685c84fee9" class="">Profesi UX telah tumbuh secara substansial sejak tahun 1950 dan sekarang profesi itu sedang benar-benar mendunia. Walaupun demikian, pertumbuhan yang diharapkan sampai tahun 2050 akan mengkerdilkan apa yang telah kita lihat sejauh ini. Banyak pendorong pertumbuhan UX tidak langsung terlihat oleh kebanyakan orang di lapangan</p><p id="162e9b37-e661-419c-ac67-b98fb5d8097f" class="">
+    </p><h2 id="69fb4971-a596-40ab-9497-04241107bfa4" class="">🚩<strong>Pendahuluan:</strong></h2><p id="89a3aa21-b403-4103-a6de-16f791ffedd0" class="">Kita seringkali terlalu fokus pada peristiwa yang terjadi sekarang: apa yang terjadi tahun ini di industri atau di kesibukan kita, atau apa yang terjadi pada proyek kita di minggu ini. Kadangkala situasi hari ini di UX adalah hal yang positif. Di lain waktu kita kesal pada pengembangan UX “nampak” tidak lakukan dan desain yang buruk menyebabkan <em>costumer base </em>(pengguna) menderita/kesusahan</p><p id="5cfd1ca0-6b99-4c94-9206-5508864261d4" class="">Dalam jangka-pendek, akan selalu ada peningkatan dan penurunan, tetapi mari sekali melihat pandangan lebih jauh dan memandang bagaimana <em>user experience</em> dalam 100 tahun. Mulai dari awal 1950an sampai ke kemungkinan yang akan terjadi di masa depan pada 2050. Ini adalah sebuah keyakinan yang positif tentang 100 tahun <em>user experience.</em></p><p id="a845a3b0-1c42-4786-927c-e49e35bcd4ea" class="">
+    </p><h2 id="5b7258b2-5f3b-4401-b2be-b7e4026c00cd" class="">🤩 <strong>Kemunculan UX</strong></h2><h3 id="e541bece-0913-4c64-9be9-bd1bdadecc53" class="">Pada tahun 1993 Don Norman menemukan istilah <em>“user experience”</em> untuk timnya di Apple Computer. Tetapi pekerjaan ini lebih tua dari sejak istilahnya ditemukan.</h3><p id="3c065b45-b84b-4117-ad8e-628d34deceb0" class="">Sulit untuk menarik garis lurus antara <em>traditional human factors </em>(faktor” keinginan dasar manusia)  dan apa yang kita sebut <em>‘user-experience’ </em>yang bertujuan untuk melakukan <em>human-centered design</em> (desain yang memusatkan kebutuhan manusia) pada sistem yang interaktif. </p><p id="12c10b0c-3631-4f07-9a94-fb95b7b9889f" class="">Bell Labs adalah pioner dalam melakukan transisi ini, dimulai dari seorang psikolog pertama yang dipekerjakan untuk mendesain sistem telepon di tahun 1945: John E. Karlin. Bell Labs tentu saja melakukan kerjaan UX, yang secara khusus mereka melakukan desain <em>(touchtone)</em>suara sentuhan pada <em>keypad</em> (papan tombol). Kita masih menggunakan desain itu hari ini dan hal itu membuktikan seberapa pentingnya mengutamakan UX.</p><figure id="32396ebb-cab4-4526-a544-e9d1231a4a85" class="image"><a href="UX%20dalam%20100%20Tahun%2032396ebbcab44526a544e9d1231a4a85/PTRtouchtone01111813jpg.jpg"><img style="width:672px" src="UX%20dalam%20100%20Tahun%2032396ebbcab44526a544e9d1231a4a85/PTRtouchtone01111813jpg.jpg"/></a></figure><p id="606c9692-cdd1-492b-b1b6-aa5202aabc71" class=""><em>image source : </em><em><a href="https://archive.triblive.com/news/50-years-ago-touch-tone-phones-began-a-communication-revolution/">https://archive.triblive.com/news/50-years-ago-touch-tone-phones-began-a-communication-revolution/</a></em></p><p id="e921dbe5-3dd7-4194-8fa3-ebddce540bc1" class="">Pada tahun 1990, saya memulai pekerjaan baru di Departemen Riset Komunikasi Bell yang tumbuh di awal-awal usaha ini. Saat itu, ada beberapa tempat untuk melakukan pekerjaan tentang UX, tetapi saya memilih Bell Labs karena pertimbangan saya adalah perusahaan itu yang terbaik di dunia. Sekali lagi, menunjukkan manfaat dari menjadi pendahulu.</p><p id="5c531608-77fa-44a7-8e4f-c7f5b2ce26b2" class="">
+    </p><h2 id="7944ca70-37f6-4e7e-8c67-919d25d1ae14" class="">🛤 <strong>100 Tahun Pertumbuhan Profesi UX</strong></h2><p id="610026b6-f213-46da-b3a8-c5a29df42bc9" class=""><mark class="highlight-orange_background">UX telah ada jauh sejak 1950.</mark> Bahkan sangat jauh sejak 1990. Akan tetapi saya masih merasa kualitas UX secara kesulurhan -baik pada web ataupun komputer secara umum- adalah kurang dari 10% dari apa yang sebaiknya ada. Terlalu rumit untuk kebanyakan orang. Mengenai hal ini, kita membutuhkan sebuah kesepakatan yang baik untuk kedepannya.</p><p id="607fecd0-eb09-48aa-9d8a-a9d6dbca4061" class="">Untuk mengoperasikan pertanyaan dari “progress lapangan pekerjaan UX”. Saya telah memilih sebuah variable tunggal: jumlah orang-orang yang bekerja di area <em>user experience</em> di dunia. Nampaknya, saya hanya dapat memberikan estimasi terbaik, sejak tidak adanya persetujuan atau konstitusi tentang “spesialisasi pekerjaan UX” (Pada riset kami, dalam karir UX, kami menemukan 1.045 orang memegang 210 posisi kerja yang berbeda.)</p><p id="535c99cc-6f14-4d6d-aff0-8bb73bf5ca1f" class="">Grafik dibawah ini menunjukkan estimasi jumlah orang-orang yang bekerja di area <em>user experience </em>dari tahun 1950 sampai 2050, dengan proyeksi tahun di masa mendatang.</p><figure id="f965df4e-0402-4207-92b5-1651eb92a4a6" class="image"><a href="UX%20dalam%20100%20Tahun%2032396ebbcab44526a544e9d1231a4a85/Untitled.png"><img style="width:447px" src="UX%20dalam%20100%20Tahun%2032396ebbcab44526a544e9d1231a4a85/Untitled.png"/></a></figure><h2 id="d4423614-790c-41c4-b374-b2cf9cf87abc" class="">🚲 <strong>100 Tahun Pertumbuhan Profesi UX</strong></h2><p id="81f293c0-fc1e-4967-8c5a-9989e0875a60" class="">Pada pandangan lebih luas (Eagle-Eyed), pembaca dapat melihat garis pada grafik diatas memiliki perbedaan lekukan pada awal, pertengahan dan akhir. Pada sebuah skala logaritma grafik, garis lurus merepresantasikan fungsi yang eksponensial, dan lekukan pada garisnya menunjukkan tingkat pertumbuhan. Pada dasarnya, saya mengatakan bahwa tingkat pertumbuhan agak berbeda setiap sepertiga dari priode 100 tahun.</p><ul id="a58ba6fe-55a9-4ce2-9c18-2374b61f06f4" class="bulleted-list"><li style="list-style-type:disc"><strong>1950 – 1983 </strong>: Profesi UX telah bertumbuh dari 10 orang (terutama orang-orang di awal-awal Bell Labs) ke sekitar 1.000 orang. Faktor pertumbuhannya 100</li></ul><ul id="8e62a506-d38f-4af3-b161-f4c5ec0cca6a" class="bulleted-list"><li style="list-style-type:disc"><strong>1983 – 2017 </strong>: Profesi UX telah bertumbuh dari sekitar 1.000 orang ke 1.000.000.000 orang. Faktor pertumbuhannya 1.000 (Linkdln memiliki 1.5 juta member di akhir 2017 yang mengklain dirinya ahli dibidang UX, usabillity, atau arsitektur informasi. Mengklaim sebuah <em>skill</em>(keahlian) dan benar-benar ahli adalah dua hal yang berbeda, akan tetapi banyak juga orang yang tidak menggunakan Linkedln, terutama di cakupan internasional, jadi estimasi 1juta UXers tidak jauh dari itu.)</li></ul><ul id="4e529ab0-94d7-4a4d-b7fa-c43ea5a54e29" class="bulleted-list"><li style="list-style-type:disc"><strong>2017 – 2050</strong> : Profesi UX diharapkan tumbuh dari sekitar 1juta orang ke sekitar 100juta orang. Faktor pertumbuhannya 100</li></ul><p id="f18d44be-cfe7-48f2-b354-d0de6ca794c3" class="">Saya memulai UX di 1983, jadi pertengahan dari sepertiga priode 100 tahun bertepatan dengan karir saya. Ada bebearapa alasan mengapa pertumbuhan UX sangat cepat pada priode ini:</p><p id="83b0a18f-5371-40a4-9938-7be5573ee27b" class="">🔥<strong>Revolusi PC di 1980an </strong>membuat tekanan lebih pada industri komputer untuk meningkatkan <em>usability </em>(kegunaan) dari produknya. Sebelum PC, tentunya tetap ada kebutuhaan akan <em>usability</em>(kegunaan), itulah mengapa personel UX tumbuh dengan faktor 100 selama era <em>‘mainframe’ </em>. tapi mainframe adalah komputer enterprise, artinya bukan mereka yang pengguna komputer yang mengambil keputusan untuk membeli. Jadi, selama era awal itu, industri komputer hanya memiliki sedikit insentif untuk menghasilkan UX yang berkualitas tinggi. Semenjak ada PC, pengguna dan pembeli adalah orang yang sama, sehingga UX secara langsung akan berdampak pada keputusan untuk membeli. Juga hadir sebuah media secara khusus mempublikasikan ulasan ketika ada <em>software</em> baru, seringkali juga melakukan pembahasan tentang kemudahan penggunaannya. (<em>PC Magazine</em> memiliki lab <em>usability</em>(kegunaan) pada tahun 1991 dan skor <em>usability</em>(kegunaan) dihitung untuk 1/3 dari keseluruhan peringkat ulasan produk perangkat lunak, dengan kinerja dan fitur dihitung untuk 2/3 lainnya)</p><p id="311ad9a6-a852-401d-a0fa-0a13b801d23e" class="">🔥<strong>Revolusi Web di 1990an dan 2000an</strong> membuat tekanan ke perusahaan untuk mengembangkan kualias desain interaksi mereka. Dengan <em>software</em> tradisional PC, urutan pembayaran dan <em>user experience </em>adalah sebagai berikut:<div class="indented"><ul id="91aaea97-3a9a-4b2c-b906-6dcba0ab3293" class="bulleted-list"><li style="list-style-type:disc">Kamu membeli paket <em>software</em> yang dibungkus plastik</li></ul><ul id="55eae6d1-8574-4a2b-85b0-6409b7467262" class="bulleted-list"><li style="list-style-type:disc">Kamu membuka paketnya, menginstal <em>software</em>nya, dan barulah menemukan kesulitan untuk menggunakan produk itu.</li></ul><p id="d149b25b-1ce5-40b5-a3e7-f8fa31d95835" class="">Degan kata lain, untuk <em>software</em> PC, urutannya adalah <mark class="highlight-blue_background">bayar dahulu</mark>, <mark class="highlight-red_background">UX kemudian</mark>. Dengan website, proses pemesanannya menjadi terbalik:</p><ul id="fbdfe9dd-45f6-436a-9af7-d341a107edcf" class="bulleted-list"><li style="list-style-type:disc">Kamu pergi ke <em>homepage</em> Jika masuk akal, kamu melanjutkan navigasi di situsnya. Jika kamu bisa menemukan jalannya, kamu akhirnya menemukan produk yang membuat kamu tertarik. Jika informasi produknya terlihat relevan untukmu, kamu bisa saja melanjutkan ke tahap berikutnya</li></ul><ul id="b46bb32d-824a-47e2-8c0d-fa16b2d7512a" class="bulleted-list"><li style="list-style-type:disc">Kamu meng<em>click Add to cart, </em>lalu ke tahap <em>checkout</em>, dan akhirnya kamu memberikan uangmu ke perusahaan itu.</li></ul><p id="6fc94aa6-162b-4faf-a7e9-d07dc4c96f7e" class="">Demikian, pada situs web, urutannya adalah <mark class="highlight-red_background">UX duluan</mark>, <mark class="highlight-blue_background">pembayaran belakangan</mark>. Dengan membuat UX sebagai gerbang dari masuknya uang, membuat peningkatan motivasi para eksekutif untuk berinvestasi di tim UX</p></div></p><p id="71f4ba1f-766d-402a-833b-2b8f0df0aff6" class="">🔥<strong>Pemberitaan yang masif </strong>tentang <em>usability</em>(kegunaan) menjadikan UX &quot;hot new thing&quot; (meskipun sudah berusia 50 tahun pada tahun 2000, jadi tidak terlalu baru). Terutama selama gelembung dot-com, saya pribadi ingat melakukan lebih dari seribu wawancara pers, seringkali dengan surat kabar terkemuka dunia. (Lihat beberapa cerita sampul UX yang paling menarik.) PR yang kuat dan positif untuk UX ini membuat banyak perusahaan berpikir &quot;kami membutuhkan hal itu.&quot;</p><p id="0bdede49-75f2-4226-a795-a8c929708a91" class=""><strong>3 faktor ini (revolusi PC, revolusi web, pemberitaan media)</strong> memberikan semangat ekstra dalam tingkat pertumbuhan UX selama sepertiga tengah periode 100 tahun yang saya analisis. Ke depannya, tidak realistis untuk mengasumsikan tingkat pertumbuhan setinggi itu, jadi hipotesis saya adalah, selama 33 tahun ke depan, kita akan kembali ke tingkat pertumbuhan 33 tahun pertama di lapangan pekerjaannya.</p><h2 id="75d09c29-49ee-4d3d-bbdb-cca7d88a44ea" class="">⚡<strong>Melihat dan merasakan pertumbuhan User Experience</strong></h2><p id="53df994b-bb4a-438e-8c0e-209c5c14453a" class="">Kamu mungkin berpikir bahwa kamu tidak melihat pertumbuhan UX yang cepat seperti yang telah saya uraikan di atas. Itu karena pertumbuhan didorong oleh 3 faktor, hanya satu yang kamu alami secara pribadi:</p><ol type="1" id="f4e13b42-e88d-44ac-b75c-acbfe5ed4eeb" class="numbered-list" start="1"><li><strong>Lebih banyak staf UX di tempatmu</strong>. Inilah satu-satunya aspek yang dapat kamu saksikan secara langsung. Sebagian besar perusahaan secara bertahap meningkatkan tingkat kematangan UX mereka dan mempekerjakan lebih banyak orang UX, karena manajemen menyadari bahwa metodologi UX yang tepat secara substansial dapat meningkatkan kualitas produk.</li></ol><ol type="1" id="ef336e30-2f88-4c7d-8642-00e4409e55eb" class="numbered-list" start="2"><li><strong>Lebih banyak lagi perusahaan melakukan UX</strong>. Kamu tidak akan langsung mengalami faktor ini, kecuali jika kamu memperhatikan feed di tagar #UXjobs. Tetapi semakin banyak perusahaan memulai grup UX dan mempekerjakan staf UX. Selalu ada lebih banyak perusahaan yang mencapai tingkat kematangan UX Level 4 (Terstruktur), dan mereka juga harus mempekerjakan manajer UX. Saya dapat membuktikan permintaan yang sangat meningkat untuk kursus manajemen UX, didorong oleh sejumlah besar grup UX baru di perusahaan yang tidak terbiasa memilikinya. Pada hari-hari awal karir saya (ketika ada sekitar 1.000 profesional UX di dunia), UX pada dasarnya hanya ditemukan di industri TI. Sekarang, setiap bidang bisnis membutuhkan UX, karena brand adalah pengalaman di dunia modern.</li></ol><ol type="1" id="0b95a443-4cdd-4a4c-b5c4-cc85399b2c24" class="numbered-list" start="3"><li>L<strong>ebih banyak negara melakukan UX.</strong> Ketika saya masih muda, UX terkonsentrasi di AS, Inggris, dan Skandinavia, dengan beberapa pos terdepan di Australia, Kanada, dan Jerman. Sekarang tidak lagi. UX sekarang mendunia. Beberapa inovasi arsitektur pengalaman terbaik sedang terjadi di Tiongkok (dan saya terpesona oleh bakat magang Tiongkok yang saya pekerjakan untuk putaran penelitian terkait Tiongkok berikutnya). Konferensi UX memiliki peserta dari 74 negara berbeda tahun ini, sedangkan tahun lalu hanya 69 negara yang hadir. Peningkatan 5 negara dalam satu tahun.</li></ol><p id="b23efc67-9801-4e6c-8c0f-2df4b1044745" class="">Kita harus mengalikan 3 faktor pertumbuhan ini bersama-sama untuk mencapai pertumbuhan bidang UX di seluruh dunia. Namun, kecuali Anda berasal dari, katakanlah, Kazakhstan, Anda tidak akan tahu bahwa negara itu mengirim perwakilan pertamanya ke Konferensi UX tahun ini. Dan kamu mungkin juga tidak tahu bahwa <strong>investasi UX di Indonesia telah meningkat sekitar 10 kali lipat hanya dalam dua tahun terakhir</strong>. Dengan demikian, sebagian besar pertumbuhan UX dunia tidak langsung terlihat oleh praktisi UX mana pun.</p><h2 id="e31248ae-2232-4c32-b9e2-f135d6f2701d" class="">😏<strong>Masa Lalu yang Sederhana, Masa Depan yang Kuat</strong></h2><p id="ec3b9a29-7eb0-46c8-9d91-22176ebb0d94" class="">Grafik di atas menunjukkan pertumbuhan bidang UX pada skala logaritmik, karena itulah satu-satunya cara untuk memvisualisasikan perubahannya selama periode 100 tahun ini. Namun, kita tidak hidup di dunia logaritmik, kita hidup di dunia linier. Jadi grafik dibawah ini menunjukkan data yang sama pada skala linier:</p><figure id="fe080d9f-0f2d-4a25-907a-5332c2533f87" class="image"><a href="UX%20dalam%20100%20Tahun%2032396ebbcab44526a544e9d1231a4a85/Untitled%201.png"><img style="width:410px" src="UX%20dalam%20100%20Tahun%2032396ebbcab44526a544e9d1231a4a85/Untitled%201.png"/></a></figure><p id="c101fed9-faae-47c2-aa2b-0c140f2fb216" class="">Pada skala linier, kita melihat bahwa semua sejarah <em>‘user-experience’</em> tidak ada apa-apanya dibandingkan dengan kemungkinan masa depan di bidang ini. Garis itu memeluk sumbu-x begitu dekat sehingga kita tidak bisa membedakan antara kelahiran medan dan hari ini. Sekitar tahun 2020, kurva akhirnya akan mulai menekuk, dan tahun-tahun berikutnya akan menjadi perjalanan roket yang sesungguhnya. Untuk seluruh tujuan praktis, pertumbuhan UX masih tetap akan datang</p><p id="f6b0cfda-bb4a-4555-af4e-d866241a0588" class="">Saya memperkirakan bahwa kita akan menjadi 100 juta profesional UX di dunia pada tahun 2050. Ini setara dengan 1% dari populasi dunia.</p><p id="f03048ad-c4de-42b1-961c-979fc57497b2" class="">Apakah realistis untuk beranggapan bahwa seluruh persen populasi akan sibuk dengan sesuatu yang esoteris seperti <em>‘user-experience’</em>? Ya, karena UX tidak akan menjadi esoteris di tahun 2050. Ini akan menjadi pendorong utama ekonomi dunia. Saya pikir itu benar-benar realistis untuk mengharapkan 1% dari populasi untuk bekerja mencari tahu apa yang harus dirancang, dan kemudian merancang produk (dan layanan). Sisanya 99% dari orang-orang kemudian dapat bekerja membangun, menjual, dan melayani apa yang telah kita rancang.</p><p id="6a63943f-2e37-4e30-bbb6-5d225b07cad4" class=""><mark class="highlight-gray_background"><em><strong>Esoteris Esoterik</strong></em></mark><mark class="highlight-gray_background"> berasal dari kata </mark><mark class="highlight-gray_background"><a href="https://id.wikipedia.org/wiki/Yunani">Yunani</a></mark><mark class="highlight-gray_background"> kuno ἐσωτερικός (esōterikós) yang berarti suatu hal yang diajarkan atau dapat dimengerti oleh sekelompok orang tertentu dan khusus</mark></p><h3 id="73bf8623-21f0-49c9-bb04-b7e916ed6e22" class="">Penggerak nilai utama ekonomi di masa depan adalah <em>‘user-experience’</em>. UX tidak hanya akan menjadi pembeda utama antara produk (yang memilik harga premium) dengan komoditas, tetapi juga akan menjadi satu-satunya cara untuk mengatasi kelesuan produktivitas yang saat ini melanda negara-negara maju.</h3><p id="a0b3cf78-1dd5-4348-926b-921206894519" class="">Ketika sebagian besar <em>value</em> dihasilkan oleh pekerja yang berpengetahuan, cara untuk meningkatkan produktivitas adalah dengan menerapkan strategi <em>cognitive deisgn</em> dan menciptakan produk yang meningkatkan pikiran manusia. Teknologi yang meniadakan keterampilan manusia adalah tata cara untuk melanjutkan produktifitas yang rendah dalam <em>knowledge economy.</em></p><p id="ae8fe14a-ee71-4a20-aa48-d2db904a1433" class="">Kita tahu bahwa UX akan menghasilkan ROI yang baik, hal ini akan terus dilakukan saat kita beralih untuk memecahkan masalah produktivitas ekonomi yang lebih <em>advanced</em>, 🔥🔥memperluas tujuan profesi UX tidak hanya sekadar membuat pengguna ketagihan dengan media sosial mereka.🔥🔥</p><p id="0e89f6cb-7388-4037-9bc1-41405509125e" class="">Hal ini akan terbayar berkali-kali lipat ketika kita memiliki 1% dari populasi dunia yang menjadi profesional UX. 99% lainnya akan berterima kasih kepada kita karena mereka akhirnya akan menguasai teknologi alih-alih tertindas olehnya. Dan bahkan jika mereka tidak menyadari bahwa sebagian besar pertumbuhan ekonomi dunia akan menjadi milik kita, mereka akan tetap menghargai betapa mereka akan menjadi lebih sejahtera karena kita.</p><p id="06793b27-f5f5-4e7a-a56b-080c3b4ec868" class="">Jika belum setuju sekarang, saya sangat optimis dengan masa depan profesi UX. Apa yang telah kita lihat sejauh ini tidak ada apa-apanya dibandingkan dengan apa yang akan datang.</p><p id="7b0ead21-3716-4e3a-8753-93b3e1ae492a" class="">
+    </p></div></article></body></html>
